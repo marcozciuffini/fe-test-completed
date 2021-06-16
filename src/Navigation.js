@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from '@reach/router'
+import HuelLogo from './HuelLogo'
 
 const Navigation = () => {
   return (
     <div className="column is-one-fifth acc-menu is-hidden-touch">
+      <HuelLogo />
       <ul className="menu-list acc-menu-list">
         <li className="acc-menu-overview">
           <Link to="/">
@@ -21,8 +23,6 @@ const Navigation = () => {
             </div>
           </Link>
         </li>
-      </ul>
-      <ul className="menu-list acc-menu-list">
         <li>
           <Link to="/task">
             <div className="acc-menu-item">

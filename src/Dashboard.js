@@ -22,8 +22,7 @@ const Dashboard = () => {
             endpoint provided.
           </p>
           <p>
-            The goal is to make the component look as close as possible to the
-            hardcoded version of it. If you have applied for a senior position then we would also like you to write at least one test.
+            The minimum requirement is to make the dynamic component visually the same as the hardcoded example provided. Anything additional is at your discretion. If you have applied for a senior position then we would also like you to write at least one test of your choice.
           </p>
           <ul>
             <li>
@@ -37,7 +36,7 @@ const Dashboard = () => {
               </a>
             </li>
             <li>You can install any npm package</li>
-            <li>You may copy the existing HTML and CSS as this is not a UI creation task</li>
+            <li>You may copy the existing HTML and CSS as a base as this is not a UI creation task</li>
           </ul>
           <p>If you have any questions just drop us a message.</p>
           <p>Good luck!</p>
