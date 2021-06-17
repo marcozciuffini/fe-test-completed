@@ -83,7 +83,7 @@ const Task = () => {
 
           <hr />
 
-          <h2 className="title is-6 is-marginless">Dynamcially Generated</h2>
+          <h2 className="title is-6 is-marginless">Dynamically Generated</h2>
           <div>
             <br/>
             <p>Your result here</p>
