@@ -38,7 +38,7 @@ const Dashboard = () => {
             <li>You can install any npm package</li>
             <li>You may copy the existing HTML and CSS as a base as this is not a UI creation task</li>
           </ul>
-          <p>If you have any questions just drop us a message.</p>
+          <p>If you have any questions just drop us a message. Please upload your test to a fresh repo on your own GitHub account.</p>
           <p>Good luck!</p>
         </div>
       </div>
