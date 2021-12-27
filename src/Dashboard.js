@@ -16,7 +16,7 @@ const Dashboard = () => {
           <p>
             The main focus is on data manipulation and presenting order history
             information to a customer by bundling the products from an API call
-            in a structured and more readable way. In the Techincal Task tab
+            in a structured and more readable way. In the Technical Task tab
             there is a component with some hardcoded HTML that needs to be
             transformed into a dynamic React component that fetches its data from the API
             endpoint provided.

@@ -1,4 +1,5 @@
 import React from 'react'
+import {DynamicTask} from "./dynamic-task";
 
 const Task = () => {
   return (
@@ -85,8 +86,7 @@ const Task = () => {
 
           <h2 className="title is-6 is-marginless">Dynamically Generated</h2>
           <div>
-            <br/>
-            <p>Your result here</p>
+            <DynamicTask />
           </div>
         </div>
       </div>
