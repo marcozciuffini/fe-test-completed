@@ -1,0 +1,12 @@
+/****
+added for alt text styling to provide semantic alt text for each image
+and to illustrate how I would use modular css in a React project
+****/
+
+.line-item__image {
+    display: inline-block;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+}

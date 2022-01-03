@@ -1,6 +1,11 @@
 export const formatLineItems = lineItems => {
 
-    const lineItemsObj = lineItems.reduce((obj, lineItem) => {
+    if (!lineItems || !lineItems.length) {
+        return null;
+    }
+
+
+    return lineItems.reduce((obj, lineItem) => {
         const objKey = returnLineItemKey(lineItem.properties, lineItem.id);
 
         return {
@@ -13,33 +18,42 @@ export const formatLineItems = lineItems => {
 
     }, {})
 
-    return Object.values(lineItemsObj).map((lineItemArray) => {
+}
+
+export const formatLineItem = (lineItemArray) => {
 
         const lineItemArrayHasMoreThanOne = lineItemArray.length > 1;
 
-            return lineItemArray.reduce((obj, lineItem, i) => {
+        return lineItemArray.reduce((obj, lineItem, i) => {
 
-                let title = lineItem.title;
-                let subheading = lineItem.variant_title ? lineItem.variant_title : lineItem.title;
-                if (lineItem.sku.slice(0,3) === 'POW') {
-                    title = lineItem.title.slice(0, 11);
-                    const itemSubheading = lineItem.quantity + 'x ' + lineItem.title.slice(11);
-                    subheading = lineItemArrayHasMoreThanOne && i > 0 ? obj.subheading + ', ' + itemSubheading : itemSubheading;
-                }
+            let title = lineItem.title;
 
-                return {
-                    ...obj,
-                    title,
-                    subheading,
-                    image: lineItem.image,
-                    currency_code: lineItem.price_set.shop_money.currency_code,
-                    accumulative_price: obj.accumulative_price += parseInt(lineItem.price),
-                    accumulative_discount: obj.accumulative_discount += parseInt(lineItem.total_discount)
+            let subheading = lineItem.variant_title ? lineItem.variant_title : lineItem.title;
+            let itemSubheading = lineItem.quantity + 'x ' + subheading;
 
-                }
-            }, { title: '', subheading: '', accumulative_discount: 0, accumulative_price: 0 })
-    })
+            if (lineItem.sku.slice(0, 3) === 'POW') {
+                title = lineItem.title.slice(0, 11);
+                itemSubheading = lineItem.quantity + 'x ' + lineItem.title.slice(11);
+            }
 
+            subheading = lineItemArrayHasMoreThanOne && i > 0 ? obj.subheading + ', ' + itemSubheading : itemSubheading;
+
+            let lineItemInfo = lineItemArrayHasMoreThanOne ? [
+                ...obj.lineItemInfo,
+                {...lineItem}
+            ] : [{...lineItem}]
+
+            return {
+                ...obj,
+                title,
+                subheading,
+                image: lineItem.image,
+                currency_code: lineItem.price_set.shop_money.currency_code,
+                price: obj.price += parseInt(lineItem.price),
+                discount: obj.discount += parseInt(lineItem.total_discount),
+                lineItemInfo,
+            }
+        }, { title: '', subheading: '', discount: 0, price: 0, lineItemInfo: [] })
 }
 
 
